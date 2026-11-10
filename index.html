@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEK-AUAN CHEESECAKE CUP - โฮมเมดชีสพายถ้วยพรีเมียม</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Mitr -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js CDN for Sales Analysis Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Mitr', 'sans-serif'],
+                        mitr: ['Mitr', 'sans-serif'],
+                    },
+                    colors: {
+                        strawberry: {
+                            50: '#FAF3E8',
+                            100: '#F6EFE3',
+                            200: '#EBE0D0',
+                            300: '#DBC5AB',
+                            400: '#B85257',
+                            500: '#801217', // Deep Burgundy Red
+                            600: '#6B0F13',
+                            700: '#570B0E',
+                            800: '#420709',
+                            dark: '#2E0406'
+                        },
+                        cream: {
+                            50: '#FDFBF7',
+                            100: '#FAF3E8',
+                            200: '#F6EFE3',
+                            300: '#EBE0D0',
+                            400: '#D5C4AC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Mitr', sans-serif;
+            background-color: #FAF3E8;
+            color: #3A2D2D;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F6EFE3;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #801217;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6B0F13;
+        }
+
+        /* Card Hover Effects */
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 24px -6px rgba(128, 18, 23, 0.15);
+        }
+
+        /* Soft Pulse animation */
+        @keyframes softPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .pulse-badge {
+            animation: softPulse 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between selection:bg-strawberry-500 selection:text-white">
+
+    <!-- TOP PROMOTION BANNER -->
+    <div class="bg-strawberry-500 text-white text-center py-2 px-4 text-xs sm:text-sm font-medium tracking-wide shadow-sm flex items-center justify-center gap-2">
+        <span>👑</span>
+        <span>โปรโมชั่นพิเศษ! ชีสพายถ้วยละ <strong>30 บาท</strong> ทุกรสชาติ ทำสดใหม่ทุกวัน สั่งครบ 10 ถ้วย ส่งฟรี! 🍰</span>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-strawberry-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- LOGO BRAND -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <img id="site-logo-img" src="" alt="DEK-AUAN LOGO" class="w-12 h-12 rounded-full object-contain border-2 border-strawberry-500 group-hover:rotate-6 transition-transform duration-300 shadow-sm">
+                <div>
+                    <span class="font-bold text-xl sm:text-2xl text-strawberry-500 block leading-none font-mitr tracking-tight">DEK-AUAN</span>
+                    <span class="text-[10px] sm:text-xs text-strawberry-400 uppercase tracking-widest font-semibold">CHEESECAKE CUP 🍓</span>
+                </div>
+            </a>
+
+            <!-- NAV LINKS (DESKTOP) -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-strawberry-800">
+                <a href="#home" class="hover:text-strawberry-500 transition-colors py-1 border-b-2 border-transparent hover:border-strawberry-500">หน้าแรก</a>
+                <a href="#menu" class="hover:text-strawberry-500 transition-colors py-1 border-b-2 border-transparent hover:border-strawberry-500">เมนูสินค้า</a>
+                <a href="#video-section" class="hover:text-strawberry-500 transition-colors py-1 border-b-2 border-transparent hover:border-strawberry-500">วิดีโอ บรรยากาศ</a>
+                <a href="#about" class="hover:text-strawberry-500 transition-colors py-1 border-b-2 border-transparent hover:border-strawberry-500">เกี่ยวกับร้าน</a>
+                
+                <!-- ADMIN BUTTON -->
+                <button onclick="openAdminModal()" class="px-4 py-2 bg-strawberry-50 hover:bg-strawberry-100 text-strawberry-700 border border-strawberry-200 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm">
+                    <i class="fa-solid fa-lock text-[10px]"></i> Admin
+                </button>
+            </nav>
+
+            <!-- RIGHT ACTION BUTTONS -->
+            <div class="flex items-center gap-3">
+                <!-- CART BUTTON HEADER -->
+                <button onclick="toggleCartDrawer()" class="relative p-2.5 bg-strawberry-500 text-white hover:bg-strawberry-600 rounded-full transition-all shadow-md hover:shadow-lg focus:outline-none flex items-center justify-center">
+                    <i class="fa-solid fa-cart-shopping text-base"></i>
+                    <span id="cart-badge-count" class="absolute -top-1 -right-1 bg-amber-400 text-strawberry-900 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm">0</span>
+                </button>
+
+                <!-- MOBILE MENU TOGGLE -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-strawberry-700 hover:text-strawberry-900 text-xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DROPDOWN -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-b border-strawberry-100 px-4 py-4 space-y-3 font-medium text-sm text-strawberry-800">
+            <a href="#home" onclick="toggleMobileMenu()" class="block py-2 hover:text-strawberry-500">หน้าแรก</a>
+            <a href="#menu" onclick="toggleMobileMenu()" class="block py-2 hover:text-strawberry-500">เมนูสินค้า</a>
+            <a href="#video-section" onclick="toggleMobileMenu()" class="block py-2 hover:text-strawberry-500">วิดีโอ บรรยากาศ</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 hover:text-strawberry-500">เกี่ยวกับร้าน</a>
+            <button onclick="toggleMobileMenu(); openAdminModal();" class="w-full text-left py-2 text-strawberry-600 font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-lock text-xs"></i> Admin
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- 1. HERO SECTION -->
+        <section id="home" class="py-12 sm:py-20 relative overflow-hidden bg-gradient-to-b from-cream-50 via-cream-100 to-cream-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- HERO TEXT -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-strawberry-100 border border-strawberry-200 text-strawberry-700 text-xs sm:text-sm font-semibold">
+                            <span>🍓</span>
+                            <span>โฮมเมดชีสพายถ้วยพรีเมียม สดใหม่วันต่อวัน</span>
+                        </div>
+                        
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-strawberry-500 leading-tight font-mitr tracking-tight">
+                            ความสุขเล็ก ๆ <br class="hidden sm:inline">
+                            <span class="text-strawberry-400">ที่อร่อยได้ทุกวัน</span> 🍰
+                        </h1>
+                        
+                        <p class="text-gray-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                            ต้อนรับสู่ร้าน <strong>DEK-AUAN (เด็กอ้วน)</strong> ชีสพายถ้วยโฮมเมดเนื้อเนียนนุ่ม หอมชีสเข้มข้น รสชาติกลมกล่อม ราคาน่ารักเพียง 30 บาท อร่อยฟินเต็มถ้วย เหมาะสำหรับสายหวาน วัยรุ่น และนักศึกษา!
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#menu" class="w-full sm:w-auto px-8 py-3.5 bg-strawberry-500 hover:bg-strawberry-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2">
+                                <span>สั่งซื้อสินค้าเลย (Order Now)</span>
+                                <i class="fa-solid fa-arrow-right text-sm"></i>
+                            </a>
+                            <a href="#about" class="w-full sm:w-auto px-6 py-3.5 bg-white hover:bg-strawberry-50 text-strawberry-700 font-semibold rounded-full border border-strawberry-200 transition-all text-center">
+                                ทำความรู้จักร้านเรา
+                            </a>
+                        </div>
+
+                        <!-- HIGHLIGHT FEATURES -->
+                        <div class="grid grid-cols-3 gap-3 pt-6 border-t border-strawberry-200/60 max-w-md mx-auto lg:mx-0 text-left">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-strawberry-100 flex items-center justify-center text-strawberry-600 text-sm">❄️</div>
+                                <span class="text-xs font-semibold text-gray-700">แช่เย็นสดใหม่</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-strawberry-100 flex items-center justify-center text-strawberry-600 text-sm">🧀</div>
+                                <span class="text-xs font-semibold text-gray-700">ครีมชีสแท้ 100%</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-strawberry-100 flex items-center justify-center text-strawberry-600 text-sm">👛</div>
+                                <span class="text-xs font-semibold text-gray-700">ราคาสบายกระเป๋า</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HERO IMAGE DISPLAY -->
+                    <div class="lg:col-span-5 relative flex justify-center">
+                        <div class="relative w-full max-w-md">
+                            <div class="absolute -inset-2 bg-gradient-to-tr from-strawberry-400 to-amber-300 rounded-3xl blur-lg opacity-30"></div>
+                            <div class="relative bg-white p-4 rounded-3xl shadow-xl border border-strawberry-100">
+                                <img id="hero-featured-img" src="" alt="Featured Cheese Pie" class="w-full h-80 sm:h-96 object-cover rounded-2xl shadow-inner">
+                                <div class="absolute bottom-6 right-6 bg-strawberry-500/90 text-white px-4 py-1.5 rounded-full text-xs font-bold backdrop-blur-sm shadow-md">
+                                    30 ฿ ทุกถ้วย
+                                </div>
+                                <div class="absolute top-8 left-8 bg-amber-400 text-strawberry-900 px-3 py-1 rounded-full text-xs font-bold shadow-md pulse-badge">
+                                    ⭐ Recommended Best Seller
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. VIDEO SHOWCASE SECTION -->
+        <section id="video-section" class="py-12 bg-white border-y border-strawberry-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+                    <span class="text-strawberry-500 font-semibold text-xs uppercase tracking-widest">✨ BEHIND THE SCENES & VIDEO SHOWCASE ✨</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-strawberry-500">เบื้องหลังความอร่อยของ DEK-AUAN 🍓</h2>
+                    <p class="text-gray-500 text-sm">ชมวิดีโอขั้นตอนการทำชีสพายโฮมเมด ถ้วยโปรดของคุณ (รองรับไฟล์อัปโหลด / ลิงก์ตรง MP4 / ลิงก์ YouTube)</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- VIDEO PLAYER DISPLAY -->
+                    <div class="lg:col-span-7 bg-cream-100 p-3 sm:p-4 rounded-3xl shadow-md border-2 border-strawberry-100">
+                        <div id="main-video-wrapper" class="relative rounded-2xl overflow-hidden aspect-video bg-strawberry-dark shadow-inner flex items-center justify-center">
+                            <!-- Rendered dynamically by JS -->
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="p-4 bg-cream-50 rounded-2xl border border-strawberry-100 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-strawberry-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">🍓</div>
+                            <div>
+                                <h4 class="font-bold text-strawberry-800 text-base">ซอสสตรอว์เบอร์รี่สด แท้ 100%</h4>
+                                <p class="text-xs text-gray-600 mt-1 leading-relaxed">เคี่ยวผลไม้สดใหม่ ไม่ผสมแป้ง หอมหวานเปรี้ยวกำลังดี กลมกล่อมทุกคำ</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-cream-50 rounded-2xl border border-strawberry-100 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-400 text-strawberry-900 flex items-center justify-center font-bold text-lg flex-shrink-0">🧈</div>
+                            <div>
+                                <h4 class="font-bold text-strawberry-800 text-base">ฐานแครกเกอร์เนยสด</h4>
+                                <p class="text-xs text-gray-600 mt-1 leading-relaxed">บดแครกเกอร์คลุกเคล้าเนยแท้ ให้ความกรุบกรอบหอมเนยในทุกสัมผัส</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-cream-50 rounded-2xl border border-strawberry-100 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-strawberry-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">🧁</div>
+                            <div>
+                                <h4 class="font-bold text-strawberry-800 text-base">ครีมชีสเนื้อเนียน ละมุน</h4>
+                                <p class="text-xs text-gray-600 mt-1 leading-relaxed">ตีครีมชีสพรีเมียมด้วยสูตรเฉพาะของเด็กอ้วน นุ่มละมุนลิ้น ไม่หวานเลี่ยน</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. OUR MENU SECTION -->
+        <section id="menu" class="py-16 bg-cream-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                    <span class="px-3 py-1 rounded-full bg-strawberry-100 text-strawberry-700 text-xs font-semibold uppercase tracking-wider">OUR DELICIOUS MENU</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-strawberry-500">เมนูแนะนำประจำร้าน 🍰</h2>
+                    <p class="text-gray-600 text-sm">คัดสรรวัตถุดิบพรีเมียม ทำสดใหม่ทุกวัน ทุกรสชาติราคาเพียง <span class="font-bold text-strawberry-500">30 บาท</span></p>
+                </div>
+
+                <!-- PRODUCT GRID -->
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Products generated dynamically via JavaScript -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. ABOUT US SECTION -->
+        <section id="about" class="py-16 bg-white border-t border-strawberry-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-5">
+                        <div class="relative bg-cream-100 p-4 rounded-3xl border border-strawberry-200 shadow-md">
+                            <img id="about-featured-img" src="" alt="About DEK-AUAN" class="w-full h-80 sm:h-96 object-cover rounded-2xl shadow-inner">
+                            <div class="mt-4 text-center">
+                                <p class="text-strawberry-600 font-semibold text-xs">"ตั้งใจทำทุกถ้วย เหมือนทำทานเอง 💖"</p>
+                                <span class="text-[10px] text-gray-500 block">- ผู้ก่อตั้งแบรนด์ DEK-AUAN -</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 space-y-6">
+                        <span class="px-3.5 py-1.5 rounded-full bg-strawberry-100 text-strawberry-700 text-xs font-semibold">ABOUT DEK-AUAN</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-strawberry-500 leading-snug">เรื่องราวของ "เด็กอ้วน" <br>ความอร่อยที่เริ่มจากความชอบ 💖🍓</h2>
+                        
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            ร้าน <strong>DEK-AUAN (เด็กอ้วน) CHEESECAKE CUP</strong> เกิดขึ้นจากความชื่นชอบในการรับประทานขนมหวานและชีสพายของผู้ก่อตั้ง เราอยากให้ทุกคนได้ทานขนมอร่อย คุณภาพดี ในราคาที่จับต้องได้สำหรับนักเรียน นักศึกษา และคนทำงาน
+                        </p>
+                        
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            เราคัดสรรวัตถุดิบอย่างพิถีพิถัน ใช้ครีมชีสแท้คุณภาพสูง รวมทั้งเนยสดแท้และซอสผลไม้รสชาติกลมกล่อม ทำสดใหม่แบบวันต่อวันในถ้วยขนาดกำลังดี ทานง่าย พกพาสะดวก
+                        </p>
+
+                        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-strawberry-100 text-center">
+                            <div class="p-3 bg-cream-50 rounded-2xl border border-strawberry-100">
+                                <div class="text-2xl mb-1">✨</div>
+                                <h4 class="font-bold text-xs text-strawberry-800">ทำสดใหม่ทุกวัน</h4>
+                                <p class="text-[10px] text-gray-500">ไม่ค้างคืน สดใหม่วันต่อวัน</p>
+                            </div>
+                            <div class="p-3 bg-cream-50 rounded-2xl border border-strawberry-100">
+                                <div class="text-2xl mb-1">🍓</div>
+                                <h4 class="font-bold text-xs text-strawberry-800">วัตถุดิบพรีเมียม</h4>
+                                <p class="text-[10px] text-gray-500">ครีมชีสแท้ ผลไม้แน่นๆ</p>
+                            </div>
+                            <div class="p-3 bg-cream-50 rounded-2xl border border-strawberry-100">
+                                <div class="text-2xl mb-1">🥰</div>
+                                <h4 class="font-bold text-xs text-strawberry-800">ใส่ใจทุกถ้วย</h4>
+                                <p class="text-[10px] text-gray-500">ความสะอาดและคุณภาพ 100%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-strawberry-500 text-white border-t border-strawberry-600 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-strawberry-400">
+                <div class="space-y-3 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <img id="footer-logo-img" src="" alt="DEK-AUAN" class="w-10 h-10 rounded-full border border-white bg-white">
+                        <span class="font-bold text-xl">DEK-AUAN CHEESECAKE CUP</span>
+                    </div>
+                    <p class="text-strawberry-100 text-xs leading-relaxed max-w-md">
+                        ร้านชีสพายโฮมเมดถ้วยโปรดของวัยรุ่นและนักศึกษา อร่อยฟิน เนื้อเนียนนุ่ม หอมชีสเข้มข้น ทำสดใหม่ทุกวัน ราคาเพียง 30 บาท
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm mb-3">เมนูลัด</h4>
+                    <ul class="space-y-2 text-xs text-strawberry-100">
+                        <li><a href="#home" class="hover:underline">หน้าแรก</a></li>
+                        <li><a href="#menu" class="hover:underline">เมนูสินค้า (30 บาท)</a></li>
+                        <li><a href="#video-section" class="hover:underline">วิดีโอ บรรยากาศ</a></li>
+                        <li><a href="#about" class="hover:underline">เกี่ยวกับร้าน</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm mb-3">ติดต่อเรา</h4>
+                    <p class="text-xs text-strawberry-100 leading-relaxed space-y-1">
+                        📍 North Bangkok University<br>
+                        📞 โทร: 094-627-3404<br>
+                        📞 โทร: 094-308-8712<br>
+                        ✉️ Email: Laddawan.rahu@nortbkk.ac.th<br>
+                        ✉️ Email: Suchittphon.saen@nortbkk.ac.th
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-strawberry-200">
+                <p>&copy; 2026 DEK-AUAN CHEESECAKE CUP. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">ออกแบบและพัฒนาสำหรับแบรนด์ร้านขนมหวานมืออาชีพ 🍓</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING CART BUTTON -->
+    <button onclick="toggleCartDrawer()" class="fixed bottom-6 right-6 z-40 p-4 bg-strawberry-500 hover:bg-strawberry-600 text-white rounded-full shadow-2xl transition-all transform hover:scale-110 flex items-center justify-center border-2 border-white">
+        <i class="fa-solid fa-bag-shopping text-xl"></i>
+        <span id="floating-cart-count" class="absolute -top-2 -right-2 bg-amber-400 text-strawberry-900 font-bold text-xs w-6 h-6 rounded-full flex items-center justify-center border-2 border-white shadow-md">0</span>
+    </button>
+
+    <!-- SHOPPING CART DRAWER (SLIDE-OVER) -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                
+                <!-- CART HEADER -->
+                <div class="p-4 bg-strawberry-500 text-white flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-shopping-bag"></i>
+                        <h3 class="font-bold text-base">ตะกร้าสินค้าของคุณ</h3>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="text-white hover:text-gray-200 text-lg p-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- CART ITEMS LIST -->
+                <div id="cart-items-container" class="flex-grow p-4 overflow-y-auto space-y-4 bg-cream-50">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <!-- CART FOOTER & CHECKOUT SUMMARY -->
+                <div class="p-4 bg-white border-t border-strawberry-100 space-y-3 shadow-lg">
+                    <div class="space-y-1.5 text-xs text-gray-600">
+                        <div class="flex justify-between">
+                            <span>ราคาสินค้าสั่งซื้อ:</span>
+                            <span id="cart-subtotal" class="font-bold text-gray-800">0 ฿</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>ค่าจัดส่ง:</span>
+                            <span id="cart-shipping" class="font-bold text-strawberry-600">30 ฿</span>
+                        </div>
+                        <div class="text-[10px] text-strawberry-500 font-medium text-right">
+                            *สั่งซื้อครบ 10 ถ้วย ฟรีค่าจัดส่ง!
+                        </div>
+                        <div class="flex justify-between text-base font-bold text-strawberry-800 pt-2 border-t border-strawberry-100">
+                            <span>ยอดรวมสุทธิ:</span>
+                            <span id="cart-total" class="text-strawberry-500">0 ฿</span>
+                        </div>
+                    </div>
+
+                    <button id="checkout-btn" onclick="openCheckoutModal()" class="w-full py-3 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl shadow-md transition-all text-sm disabled:opacity-50 cursor-pointer">
+                        ดำเนินการสั่งซื้อสินค้า 🛍️
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 space-y-5 border border-strawberry-200 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-strawberry-100 pb-3">
+                <h3 class="font-bold text-strawberry-800 text-lg flex items-center gap-2">
+                    <span>🧾</span> ยืนยันข้อมูลสั่งซื้อสินค้า
+                </h3>
+                <button onclick="closeCheckoutModal()" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- CHECKOUT FORM -->
+            <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)" class="space-y-4 text-xs sm:text-sm">
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1">ชื่อ-นามสกุล ผู้รับ *</label>
+                    <input type="text" id="cust-name" required placeholder="เช่น นายเด็กอ้วน ชีสพาย" class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1">เบอร์โทรศัพท์ติดต่อ *</label>
+                    <input type="tel" id="cust-phone" required placeholder="เช่น 081-234-5678" class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1">ที่อยู่จัดส่ง / อาคาร / ห้องเรียน *</label>
+                    <textarea id="cust-address" required rows="2" placeholder="ระบุที่อยู่จัดส่งโดยละเอียด..." class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1">เลือกวิธีการชำระเงิน</label>
+                    <div class="grid grid-cols-2 gap-3 pt-1">
+                        <label class="border border-strawberry-200 p-3 rounded-xl flex items-center gap-2 cursor-pointer hover:bg-cream-50">
+                            <input type="radio" name="payment" value="COD" checked class="text-strawberry-500 focus:ring-strawberry-400">
+                            <span class="font-semibold text-gray-700">💵 เก็บเงินปลายทาง</span>
+                        </label>
+                        <label class="border border-strawberry-200 p-3 rounded-xl flex items-center gap-2 cursor-pointer hover:bg-cream-50">
+                            <input type="radio" name="payment" value="BANK" class="text-strawberry-500 focus:ring-strawberry-400">
+                            <span class="font-semibold text-gray-700">🏦 โอนเงินผ่านธนาคาร</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-cream-100 rounded-2xl border border-strawberry-200 space-y-1.5">
+                    <div class="flex justify-between text-xs text-gray-600">
+                        <span>มูลค่าสินค้า:</span>
+                        <span id="chk-subtotal" class="font-bold">0 ฿</span>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-600">
+                        <span>ค่าจัดส่ง:</span>
+                        <span id="chk-shipping" class="font-bold">30 ฿</span>
+                    </div>
+                    <div class="flex justify-between text-sm font-bold text-strawberry-800 pt-1 border-t border-strawberry-200">
+                        <span>ชำระทั้งสิ้น:</span>
+                        <span id="chk-total" class="text-strawberry-500 text-base">0 ฿</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-3 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl shadow-md transition-all">
+                    ยืนยันการสั่งซื้อ ✨
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- RECEIPT MODAL -->
+    <div id="receipt-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 border border-strawberry-200 shadow-2xl text-center">
+            <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto">✓</div>
+            <h3 class="text-xl font-bold text-strawberry-800">สั่งซื้อสินค้าสำเร็จ!</h3>
+            <p class="text-xs text-gray-500">ขอบคุณที่อุดหนุน DEK-AUAN CHEESECAKE CUP ครับ 💖</p>
+            
+            <div id="receipt-content" class="text-left text-xs bg-cream-50 p-4 rounded-2xl border border-strawberry-100 space-y-2 font-mono">
+                <!-- Receipt injected by JS -->
+            </div>
+
+            <div class="flex gap-3 pt-2">
+                <button onclick="window.print()" class="flex-1 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold rounded-xl text-xs">🖨️ พิมพ์ใบเสร็จ</button>
+                <button onclick="closeReceiptModal()" class="flex-1 py-2.5 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl text-xs">ปิดหน้านี้</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN PIN MODAL -->
+    <div id="admin-pin-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 space-y-5 border border-strawberry-200 shadow-2xl text-center">
+            <div class="w-12 h-12 rounded-full bg-strawberry-100 text-strawberry-700 flex items-center justify-center text-xl mx-auto">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-strawberry-800">เข้าสู่ระบบหลังบ้าน (Admin)</h3>
+                <p class="text-xs text-gray-500 mt-1">กรุณากรอกรหัสผ่านเพื่อใช้งาน</p>
+            </div>
+
+            <div>
+                <input type="password" id="admin-pin-input" placeholder="******" class="w-full text-center text-xl font-bold tracking-widest py-3 rounded-xl border border-strawberry-300 focus:ring-2 focus:ring-strawberry-400 focus:outline-none">
+                <p id="admin-pin-error" class="text-red-500 text-xs mt-2 font-semibold hidden">
+                    <i class="fa-solid fa-circle-xmark"></i> ไม่ถูกต้องกรุณากรอกรหัสผ่านใหม่
+                </p>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="closeAdminPinModal()" class="flex-1 py-2.5 bg-cream-200 hover:bg-cream-300 text-strawberry-800 font-bold rounded-xl text-xs">ยกเลิก</button>
+                <button onclick="submitAdminPin()" class="flex-1 py-2.5 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl text-xs">ตกลง</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD MODAL -->
+    <div id="admin-dashboard-modal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/70 backdrop-blur-md hidden">
+        <div class="bg-cream-50 rounded-3xl max-w-5xl w-full max-h-[92vh] flex flex-col border border-strawberry-200 shadow-2xl overflow-hidden">
+            
+            <!-- ADMIN HEADER -->
+            <div class="p-4 bg-strawberry-500 text-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-gear text-xl"></i>
+                    <div>
+                        <h3 class="font-bold text-lg">ระบบหลังบ้านผู้ดูแลร้าน (Admin Dashboard)</h3>
+                        <p class="text-[10px] text-strawberry-200">จัดการโลโก้ร้าน, วิดีโอสินค้า, สต๊อก และตรวจสอบรายได้</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminDashboard()" class="text-white hover:text-strawberry-200 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- ADMIN TABS -->
+            <div class="flex border-b border-strawberry-200 bg-white px-4">
+                <button onclick="switchAdminTab('finance')" id="tab-btn-finance" class="py-3 px-4 font-bold text-xs sm:text-sm border-b-2 border-strawberry-500 text-strawberry-800 flex items-center gap-2">
+                    📊 สรุปการเงิน & ยอดขาย
+                </button>
+                <button onclick="switchAdminTab('stock')" id="tab-btn-stock" class="py-3 px-4 font-semibold text-xs sm:text-sm text-gray-500 border-b-2 border-transparent hover:text-strawberry-600 flex items-center gap-2">
+                    📦 จัดการสต๊อกสินค้า
+                </button>
+                <button onclick="switchAdminTab('media')" id="tab-btn-media" class="py-3 px-4 font-semibold text-xs sm:text-sm text-gray-500 border-b-2 border-transparent hover:text-strawberry-600 flex items-center gap-2">
+                    🎨 จัดการสื่อ & แบรนด์ (โลโก้/วิดีโอ)
+                </button>
+            </div>
+
+            <!-- ADMIN CONTENT AREA -->
+            <div class="p-4 sm:p-6 overflow-y-auto flex-grow space-y-6">
+                
+                <!-- TAB 1: FINANCIAL & SALES SUMMARY -->
+                <div id="admin-tab-finance" class="space-y-6">
+                    <!-- 4 FINANCIAL CARDS -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-white p-4 rounded-2xl border border-strawberry-100 shadow-sm">
+                            <span class="text-xs text-gray-500 block font-semibold">ยอดขายรวมทั้งหมด</span>
+                            <span id="stat-total-sales" class="text-2xl font-bold text-strawberry-800">0 ฿</span>
+                            <span class="text-[10px] text-emerald-600 font-semibold block mt-1">Total Revenues</span>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-strawberry-100 shadow-sm">
+                            <span class="text-xs text-gray-500 block font-semibold">ต้นทุนรวมทั้งหมด</span>
+                            <span id="stat-total-cost" class="text-2xl font-bold text-gray-700">0 ฿</span>
+                            <span class="text-[10px] text-gray-400 font-semibold block mt-1">Total Costs</span>
+                        </div>
+
+                        <div class="bg-strawberry-50 p-4 rounded-2xl border border-strawberry-200 shadow-sm">
+                            <span class="text-xs text-strawberry-700 block font-semibold">กำไรสุทธิ (Net Profit)</span>
+                            <span id="stat-net-profit" class="text-2xl font-bold text-strawberry-500">0 ฿</span>
+                            <span class="text-[10px] text-strawberry-600 font-semibold block mt-1">Calculated Profit</span>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-strawberry-100 shadow-sm">
+                            <span class="text-xs text-gray-500 block font-semibold">ขายได้รวม (ถ้วย)</span>
+                            <span id="stat-units-sold" class="text-2xl font-bold text-strawberry-800">0 ถ้วย</span>
+                            <span class="text-[10px] text-strawberry-600 font-semibold block mt-1">Units Sold</span>
+                        </div>
+                    </div>
+
+                    <!-- SALES & PROFIT CHART -->
+                    <div class="bg-white p-5 rounded-2xl border border-strawberry-100 shadow-sm space-y-3">
+                        <div class="flex justify-between items-center border-b border-strawberry-100 pb-2">
+                            <h4 class="font-bold text-strawberry-800 text-sm flex items-center gap-2">
+                                <span>📊</span> กราฟวิเคราะห์ยอดขายและกำไรแยกตามเมนู
+                            </h4>
+                            <span class="text-[11px] text-gray-400">อัปเดตแบบ Real-time</span>
+                        </div>
+                        <div class="relative w-full h-56 sm:h-64">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- ORDERS HISTORY -->
+                    <div class="bg-white p-5 rounded-2xl border border-strawberry-100 shadow-sm space-y-3">
+                        <div class="flex justify-between items-center border-b border-strawberry-100 pb-2">
+                            <h4 class="font-bold text-strawberry-800 text-sm flex items-center gap-2">
+                                <span>📜</span> ประวัติรายการสั่งซื้อล่าสุด
+                            </h4>
+                            <button onclick="clearAllOrdersHistory()" class="px-3 py-1 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg text-xs font-semibold border border-red-200 transition-colors">
+                                🗑️ ล้างประวัติทั้งหมด
+                            </button>
+                        </div>
+                        
+                        <div id="orders-history-list" class="space-y-2 max-h-60 overflow-y-auto pr-1">
+                            <!-- Rendered dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: STOCK MANAGEMENT -->
+                <div id="admin-tab-stock" class="hidden space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-strawberry-800 text-sm flex items-center gap-2">
+                            <span>📦</span> จัดการสต๊อก และแก้ไขสินค้า
+                        </h4>
+                        <button onclick="openAddProductModal()" class="px-4 py-2 bg-strawberry-500 hover:bg-strawberry-600 text-white rounded-xl text-xs font-bold shadow-sm">
+                            + เพิ่มสินค้าใหม่
+                        </button>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-strawberry-100 shadow-sm overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-cream-100 text-strawberry-800 border-b border-strawberry-200">
+                                    <th class="p-3">สินค้า</th>
+                                    <th class="p-3">ราคาขาย (฿)</th>
+                                    <th class="p-3">ต้นทุน (฿)</th>
+                                    <th class="p-3">สต๊อกคงเหลือ</th>
+                                    <th class="p-3">จัดการรูปภาพ</th>
+                                    <th class="p-3 text-center">จัดการ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-stock-table-body" class="divide-y divide-strawberry-100">
+                                <!-- Rendered dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- TAB 3: MEDIA & BRANDING MANAGEMENT -->
+                <div id="admin-tab-media" class="hidden space-y-6">
+                    
+                    <!-- BRAND LOGO MANAGEMENT -->
+                    <div class="bg-white p-5 rounded-2xl border border-strawberry-100 shadow-sm space-y-4">
+                        <div class="flex items-center gap-2 border-b border-strawberry-100 pb-3">
+                            <span class="text-2xl">🖼️</span>
+                            <div>
+                                <h4 class="font-bold text-strawberry-800 text-base">จัดการรูปภาพโลโก้ร้าน (DEK-AUAN LOGO)</h4>
+                                <p class="text-xs text-gray-500">เลือกไฟล์รูปภาพจากเครื่อง หรือใส่อัปเดตลิงก์ URL โลโก้ใหม่</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                            <div class="md:col-span-4 flex flex-col items-center justify-center p-4 bg-cream-50 rounded-2xl border border-strawberry-100">
+                                <img id="admin-logo-preview" src="" alt="Logo Preview" class="w-24 h-24 rounded-full object-contain border-2 border-strawberry-500 bg-white mb-2 shadow-md">
+                                <span class="text-[10px] text-gray-400">รูปภาพโลโก้ปัจจุบัน</span>
+                            </div>
+
+                            <div class="md:col-span-8 space-y-3 text-xs sm:text-sm">
+                                <div>
+                                    <label class="block font-semibold text-strawberry-800 mb-1">ตัวเลือกที่ 1: เลือกไฟล์รูปภาพจากเครื่อง (.png, .jpg, .svg)</label>
+                                    <input type="file" id="admin-logo-file-input" accept="image/*" onchange="handleLogoFileUpload(event)" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-strawberry-100 file:text-strawberry-700 hover:file:bg-strawberry-200 cursor-pointer">
+                                </div>
+                                
+                                <div class="relative flex py-1 items-center">
+                                    <div class="flex-grow border-t border-gray-200"></div>
+                                    <span class="flex-shrink mx-2 text-gray-400 text-[10px]">หรือ</span>
+                                    <div class="flex-grow border-t border-gray-200"></div>
+                                </div>
+
+                                <div>
+                                    <label class="block font-semibold text-strawberry-800 mb-1">ตัวเลือกที่ 2: วางลิงก์ URL รูปภาพโลโก้</label>
+                                    <input type="text" id="admin-logo-url-input" placeholder="https://..." class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none text-xs">
+                                </div>
+
+                                <button onclick="saveLogoSettings()" class="px-5 py-2.5 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl shadow-md transition-all text-xs cursor-pointer">
+                                    💾 บันทึกเปลี่ยนโลโก้ใหม่
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HERO FEATURED IMAGE MANAGEMENT -->
+                    <div class="bg-white p-5 rounded-2xl border border-strawberry-100 shadow-sm space-y-4">
+                        <div class="flex items-center gap-2 border-b border-strawberry-100 pb-3">
+                            <span class="text-2xl">🌟</span>
+                            <div>
+                                <h4 class="font-bold text-strawberry-800 text-base">เปลี่ยนรูปภาพชีสพายไฮไลท์หน้าแรก (Hero Featured Image)</h4>
+                                <p class="text-xs text-gray-500">เลือกไฟล์รูปภาพจากเครื่อง หรือวาง URL รูปภาพใหม่</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                            <div class="md:col-span-4 flex flex-col items-center justify-center p-3 bg-cream-50 rounded-2xl border border-strawberry-100">
+                                <img id="admin-hero-preview" src="" alt="Hero Preview" class="w-full h-32 object-cover rounded-xl border border-strawberry-200 shadow-sm">
+                                <span class="text-[10px] text-gray-400 mt-2">รูปภาพไฮไลท์ปัจจุบัน</span>
+                            </div>
+
+                            <div class="md:col-span-8 space-y-3 text-xs sm:text-sm">
+                                <div>
+                                    <label class="block font-semibold text-strawberry-800 mb-1">เลือกไฟล์รูปภาพจากเครื่อง (.png, .jpg, .webp)</label>
+                                    <input type="file" id="admin-hero-file-input" accept="image/*" onchange="handleHeroFileUpload(event)" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-strawberry-100 file:text-strawberry-700 hover:file:bg-strawberry-200 cursor-pointer">
+                                </div>
+                                <button onclick="saveHeroSettings()" class="px-5 py-2.5 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl shadow-md transition-all text-xs cursor-pointer">
+                                    💾 บันทึกเปลี่ยนรูปภาพไฮไลท์
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ABOUT US IMAGE MANAGEMENT -->
+                    <div class="bg-white p-5 rounded-2xl border border-strawberry-100 shadow-sm space-y-4">
+                        <div class="flex items-center gap-2 border-b border-strawberry-100 pb-3">
+                            <span class="text-2xl">💖</span>
+                            <div>
+                                <h4 class="font-bold text-strawberry-800 text-base">เปลี่ยนรูปภาพเกี่ยวกับร้าน (About Us Image)</h4>
+                                <p class="text-xs text-gray-500">เลือกไฟล์รูปภาพจากเครื่อง หรือวาง URL รูปภาพเกี่ยวกับร้านค้า</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                            <div class="md:col-span-4 flex flex-col items-center justify-center p-3 bg-cream-50 rounded-2xl border border-strawberry-100">
+                                <img id="admin-about-preview" src="" alt="About Preview" class="w-full h-32 object-cover rounded-xl border border-strawberry-200 shadow-sm">
+                                <span class="text-[10px] text-gray-400 mt-2">รูปเกี่ยวกับร้านปัจจุบัน</span>
+                            </div>
+
+                            <div class="md:col-span-8 space-y-3 text-xs sm:text-sm">
+                                <div>
+                                    <label class="block font-semibold text-strawberry-800 mb-1">เลือกไฟล์รูปภาพจากเครื่อง (.png, .jpg, .webp)</label>
+                                    <input type="file" id="admin-about-file-input" accept="image/*" onchange="handleAboutFileUpload(event)" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-strawberry-100 file:text-strawberry-700 hover:file:bg-strawberry-200 cursor-pointer">
+                                </div>
+                                <button onclick="saveAboutSettings()" class="px-5 py-2.5 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl shadow-md transition-all text-xs cursor-pointer">
+                                    💾 บันทึกเปลี่ยนรูปเกี่ยวกับร้าน
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VIDEO SHOWCASE MANAGEMENT -->
+                    <div class="bg-white p-5 rounded-2xl border border-strawberry-100 shadow-sm space-y-4">
+                        <div class="flex items-center gap-2 border-b border-strawberry-100 pb-3">
+                            <span class="text-2xl">🎬</span>
+                            <div>
+                                <h4 class="font-bold text-strawberry-800 text-base">เปลี่ยนวิดีโอสินค้า (Video Showcase)</h4>
+                                <p class="text-xs text-gray-500">รองรับลิงก์ YouTube, อัปโหลดไฟล์วิดีโอจากเครื่อง หรือลิงก์ตรง MP4</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                            <div id="admin-video-preview-wrapper" class="md:col-span-5 bg-strawberry-dark rounded-2xl overflow-hidden aspect-video relative flex items-center justify-center">
+                                <!-- Rendered dynamically by JS -->
+                            </div>
+
+                            <div class="md:col-span-7 space-y-3 text-xs sm:text-sm">
+                                <div>
+                                    <label class="block font-semibold text-strawberry-800 mb-1">ตัวเลือกที่ 1: วางลิงก์วิดีโอ (MP4 URL หรือ ลิงก์ YouTube)</label>
+                                    <input type="text" id="admin-video-url-input" placeholder="https://www.youtube.com/watch?v=... หรือ https://.../video.mp4" class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none text-xs">
+                                </div>
+
+                                <div class="relative flex py-1 items-center">
+                                    <div class="flex-grow border-t border-gray-200"></div>
+                                    <span class="flex-shrink mx-2 text-gray-400 text-[10px]">หรือ</span>
+                                    <div class="flex-grow border-t border-gray-200"></div>
+                                </div>
+
+                                <div>
+                                    <label class="block font-semibold text-strawberry-800 mb-1">ตัวเลือกที่ 2: อัปโหลดไฟล์วิดีโอจากเครื่อง (.mp4, .webm)</label>
+                                    <input type="file" id="admin-video-file-input" accept="video/mp4,video/webm" onchange="handleVideoFileUpload(event)" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-strawberry-100 file:text-strawberry-700 hover:file:bg-strawberry-200 cursor-pointer">
+                                </div>
+
+                                <div>
+                                    <label class="block font-semibold text-strawberry-800 mb-1">ตัวเลือกที่ 3: เลือกวิดีโอตัวอย่างระบบ</label>
+                                    <div class="flex flex-wrap gap-2 pt-1">
+                                        <button type="button" onclick="selectPresetVideo('https://www.youtube.com/watch?v=5qap5aO4i9A')" class="px-2.5 py-1 bg-cream-100 hover:bg-cream-200 text-strawberry-800 rounded-lg text-xs font-semibold border border-strawberry-200 cursor-pointer">
+                                            🎬 YouTube Bakery
+                                        </button>
+                                        <button type="button" onclick="selectPresetVideo('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')" class="px-2.5 py-1 bg-cream-100 hover:bg-cream-200 text-strawberry-800 rounded-lg text-xs font-semibold border border-strawberry-200 cursor-pointer">
+                                            📹 Direct MP4 Sample
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="pt-2">
+                                    <button onclick="saveVideoSettings()" class="px-5 py-2.5 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl shadow-md transition-all text-xs cursor-pointer">
+                                        💾 บันทึกเปลี่ยนวิดีโอใหม่
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ADMIN FOOTER -->
+            <div class="p-4 bg-white border-t border-strawberry-100 flex justify-end">
+                <button onclick="closeAdminDashboard()" class="px-6 py-2 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl text-xs">
+                    ปิดหน้าต่างผู้ดูแล
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD NEW PRODUCT MODAL -->
+    <div id="add-product-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 border border-strawberry-200 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-strawberry-100 pb-2">
+                <h3 class="font-bold text-strawberry-800 text-base">➕ เพิ่มรายการสินค้าใหม่</h3>
+                <button onclick="closeAddProductModal()" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form onsubmit="submitNewProduct(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">ชื่อสินค้าภาษาไทย *</label>
+                    <input type="text" id="new-p-name" required placeholder="เช่น บลูเบอร์รี่ชีสพาย" class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">ชื่อสินค้าภาษาอังกฤษ</label>
+                    <input type="text" id="new-p-name-en" placeholder="เช่น Blueberry Cheese Pie" class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none">
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <div>
+                        <label class="block font-semibold text-gray-700 mb-1">ราคาขาย (฿) *</label>
+                        <input type="number" id="new-p-price" value="30" required min="1" class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-gray-700 mb-1">ต้นทุน (฿) *</label>
+                        <input type="number" id="new-p-cost" value="15" required min="1" class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-gray-700 mb-1">จำนวนสต๊อก *</label>
+                        <input type="number" id="new-p-stock" value="20" required min="0" class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">รายละเอียดวัตถุดิบ</label>
+                    <input type="text" id="new-p-desc" placeholder="ครีมชีสพรีเมียม ซอสผลไม้สด แครกเกอร์เนยสด" class="w-full px-3 py-2 rounded-xl border border-strawberry-200 focus:ring-2 focus:ring-strawberry-400 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">เลือกไฟล์รูปภาพจากเครื่อง</label>
+                    <input type="file" id="new-p-file" accept="image/*" onchange="handleNewProductFile(event)" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-strawberry-100 file:text-strawberry-700 hover:file:bg-strawberry-200 cursor-pointer">
+                </div>
+
+                <div class="flex gap-2 pt-2">
+                    <button type="button" onclick="closeAddProductModal()" class="flex-1 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold rounded-xl">ยกเลิก</button>
+                    <button type="submit" class="flex-1 py-2.5 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl">บันทึกสินค้าใหม่</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // GLOBAL TOAST NOTIFICATION UTILITY
+        function showToast(message) {
+            let toast = document.getElementById('toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'toast';
+                toast.className = 'fixed bottom-6 right-6 bg-strawberry-800 text-white px-5 py-3 rounded-2xl shadow-2xl z-50 transition-all duration-300 transform opacity-0 translate-y-4 pointer-events-none font-mitr text-sm flex items-center gap-2 border border-strawberry-400';
+                document.body.appendChild(toast);
+            }
+            toast.innerHTML = `<span>🍓</span> <span>${message}</span>`;
+            toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            if (window.toastTimeout) clearTimeout(window.toastTimeout);
+            window.toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            }, 2500);
+        }
+
+        // DEFAULT LOGO SVG & MEDIA
+        const DEFAULT_LOGO_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" fill="%23FAF3E8" stroke="%23801217" stroke-width="6"/><circle cx="100" cy="100" r="84" fill="none" stroke="%23EBE0D0" stroke-width="2" stroke-dasharray="6,4"/><path d="M100 45 C80 25, 45 40, 55 70 C65 100, 100 120, 100 120 C100 120, 135 100, 145 70 C155 40, 120 25, 100 45 Z" fill="%23801217"/><path d="M92 42 Q100 32 108 42 Q100 46 92 42 Z" fill="%232b5329"/><text x="100" y="145" font-family="sans-serif" font-weight="700" font-size="22" fill="%23801217" text-anchor="middle">DEK-AUAN</text><rect x="40" y="153" width="120" height="16" rx="8" fill="%23801217"/><text x="100" y="165" font-family="sans-serif" font-weight="600" font-size="9" fill="%23FFFFFF" text-anchor="middle">CHEESECAKE</text></svg>`;
+        const DEFAULT_VIDEO_URL = "https://www.youtube.com/watch?v=5qap5aO4i9A";
+        const DEFAULT_HERO_IMG = "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80";
+        const DEFAULT_ABOUT_IMG = "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80";
+
+        // INITIAL 4 PRODUCTS
+        const INITIAL_PRODUCTS = [
+            {
+                id: 1,
+                name: "Blueberry Cheese Pie",
+                nameTh: "บลูเบอร์รี่ชีสพาย",
+                price: 30,
+                cost: 15,
+                stock: 25,
+                desc: "ครีมชีสแท้เนื้อเนียน ราดท็อปปิ้งซอสบลูเบอร์รี่ผลสด รสเปรี้ยวหวานกลมกล่อม",
+                img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 2,
+                name: "Strawberry Cheese Pie",
+                nameTh: "สตรอว์เบอร์รี่ชีสพาย",
+                price: 30,
+                cost: 15,
+                stock: 20,
+                desc: "ครีมชีสพรีเมียม ผสานซอสสตรอว์เบอร์รี่เคี่ยวสด รสชาติหอมสดชื่นสไตล์เกาหลี",
+                img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 3,
+                name: "Chocolate Cheese Pie",
+                nameTh: "ช็อกโกแลตชีสพาย",
+                price: 30,
+                cost: 16,
+                stock: 18,
+                desc: "ช็อกโกแลตซอสเข้มข้น รสชาติหวานมันเข้มข้น ทานคู่ฐานแครกเกอร์เนยสดเข้ากันที่สุด",
+                img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 4,
+                name: "Oreo Cheese Pie",
+                nameTh: "โอริโอ้ชีสพาย",
+                price: 30,
+                cost: 14,
+                stock: 15,
+                desc: "โอริโอ้บดกรุบกรอบ โรยท็อปปิ้งครีมชีสผสมชิ้นโอริโอ้ หวานมันกรอบอร่อยเพลิดเพลิน",
+                img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        // GLOBAL APPLICATION STATE
+        let products = [];
+        let cart = [];
+        let orders = [];
+        let currentLogo = DEFAULT_LOGO_SVG;
+        let currentVideo = DEFAULT_VIDEO_URL;
+        let currentHeroImg = DEFAULT_HERO_IMG;
+        let currentAboutImg = DEFAULT_ABOUT_IMG;
+
+        let tempLogoFileBase64 = "";
+        let tempHeroFileBase64 = "";
+        let tempAboutFileBase64 = "";
+        let tempVideoFileBase64 = "";
+        let tempNewProductFileBase64 = "";
+
+        // ON LOAD INITIALIZATION
+        window.onload = function() {
+            loadLocalStorageData();
+            renderProducts();
+            updateCartUI();
+            updateMediaElements();
+        };
+
+        // LOCAL STORAGE LOAD
+        function loadLocalStorageData() {
+            const savedProducts = localStorage.getItem('dek_auan_products_v3');
+            products = savedProducts ? JSON.parse(savedProducts) : INITIAL_PRODUCTS;
+
+            const savedCart = localStorage.getItem('dek_auan_cart_v3');
+            cart = savedCart ? JSON.parse(savedCart) : [];
+
+            const savedOrders = localStorage.getItem('dek_auan_orders_v3');
+            orders = savedOrders ? JSON.parse(savedOrders) : [];
+
+            currentLogo = localStorage.getItem('dek_auan_logo_v3') || DEFAULT_LOGO_SVG;
+            currentVideo = localStorage.getItem('dek_auan_video_v3') || DEFAULT_VIDEO_URL;
+            currentHeroImg = localStorage.getItem('dek_auan_hero_img_v3') || DEFAULT_HERO_IMG;
+            currentAboutImg = localStorage.getItem('dek_auan_about_img_v3') || DEFAULT_ABOUT_IMG;
+        }
+
+        function saveProductsToStorage() {
+            localStorage.setItem('dek_auan_products_v3', JSON.stringify(products));
+        }
+
+        function saveCartToStorage() {
+            localStorage.setItem('dek_auan_cart_v3', JSON.stringify(cart));
+        }
+
+        function saveOrdersToStorage() {
+            localStorage.setItem('dek_auan_orders_v3', JSON.stringify(orders));
+        }
+
+        // UPDATE LOGO, HERO, ABOUT & VIDEO MEDIA ELEMENTS ON PAGE
+        function updateMediaElements() {
+            document.getElementById('site-logo-img').src = currentLogo;
+            document.getElementById('footer-logo-img').src = currentLogo;
+            document.getElementById('admin-logo-preview').src = currentLogo;
+
+            document.getElementById('hero-featured-img').src = currentHeroImg;
+            document.getElementById('admin-hero-preview').src = currentHeroImg;
+
+            document.getElementById('about-featured-img').src = currentAboutImg;
+            document.getElementById('admin-about-preview').src = currentAboutImg;
+
+            updateVideoOnPage(currentVideo);
+        }
+
+        // CONVERT YOUTUBE LINK TO EMBED URL
+        function getYouTubeEmbedUrl(url) {
+            if (!url) return null;
+            let videoId = null;
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            if (match && match[2].length === 11) {
+                videoId = match[2];
+            } else if (url.includes('/shorts/')) {
+                const parts = url.split('/shorts/');
+                if (parts[1]) videoId = parts[1].split('?')[0].split('/')[0];
+            }
+
+            if (videoId) {
+                return `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0&modestbranding=1`;
+            }
+            return null;
+        }
+
+        function updateVideoOnPage(videoSrc) {
+            const mainWrapper = document.getElementById('main-video-wrapper');
+            const adminWrapper = document.getElementById('admin-video-preview-wrapper');
+            const urlInput = document.getElementById('admin-video-url-input');
+
+            if (!videoSrc) videoSrc = DEFAULT_VIDEO_URL;
+
+            const embedUrl = getYouTubeEmbedUrl(videoSrc);
+            let mainHTML = '';
+            let adminHTML = '';
+
+            if (embedUrl) {
+                mainHTML = `<iframe src="${embedUrl}" class="w-full h-full border-0 rounded-2xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                adminHTML = `<iframe src="${embedUrl}" class="w-full h-full border-0 rounded-2xl" allowfullscreen></iframe>`;
+            } else {
+                mainHTML = `
+                    <video controls playsinline class="w-full h-full object-cover">
+                        <source src="${videoSrc}" type="video/mp4">
+                        ขออภัย เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอนี้
+                    </video>`;
+                adminHTML = `
+                    <video controls playsinline class="w-full h-full object-cover">
+                        <source src="${videoSrc}" type="video/mp4">
+                    </video>`;
+            }
+
+            if (mainWrapper) mainWrapper.innerHTML = mainHTML;
+            if (adminWrapper) adminWrapper.innerHTML = adminHTML;
+            if (urlInput) urlInput.value = videoSrc.startsWith('data:') ? '' : videoSrc;
+        }
+
+        // RENDER PRODUCTS GRID ON FRONTEND
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            products.forEach(p => {
+                const isSoldOut = p.stock <= 0;
+                const card = document.createElement('div');
+                card.className = `bg-white rounded-3xl p-4 border border-strawberry-100 shadow-md product-card flex flex-col justify-between relative overflow-hidden ${isSoldOut ? 'opacity-85' : ''}`;
+
+                card.innerHTML = `
+                    <div class="relative rounded-2xl overflow-hidden aspect-square mb-4 bg-cream-100">
+                        <img src="${p.img}" alt="${p.nameTh}" class="w-full h-full object-cover">
+                        ${isSoldOut ? 
+                            `<div class="absolute inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center">
+                                <span class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider shadow-lg">Sold Out (หมดแล้ว)</span>
+                             </div>` : 
+                            `<span class="absolute top-3 right-3 bg-strawberry-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">30 ฿</span>`
+                        }
+                    </div>
+
+                    <div class="space-y-2 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-strawberry-800 text-base leading-snug font-mitr">${p.nameTh}</h3>
+                            <span class="text-[11px] text-strawberry-400 block font-medium">${p.name}</span>
+                            <p class="text-gray-500 text-xs mt-1.5 leading-relaxed line-clamp-2">${p.desc}</p>
+                        </div>
+
+                        <div class="pt-3 border-t border-strawberry-100 space-y-3">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="text-gray-500 font-medium">สต๊อกคงเหลือ:</span>
+                                <span class="font-bold ${p.stock < 5 ? 'text-red-500' : 'text-emerald-600'}">${p.stock} ถ้วย</span>
+                            </div>
+
+                            <button onclick="addToCart(${p.id})" ${isSoldOut ? 'disabled' : ''} class="w-full py-2.5 bg-strawberry-500 hover:bg-strawberry-600 text-white font-bold rounded-xl shadow-md transition-all text-xs flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>${isSoldOut ? 'สินค้าหมด' : 'เพิ่มลงตะกร้า'}</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // CART LOGIC
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product || product.stock <= 0) {
+                showToast("ขออภัย สินค้านี้หมดแล้วครับ");
+                return;
+            }
+
+            const existingItem = cart.find(item => item.id === productId);
+            const currentQtyInCart = existingItem ? existingItem.qty : 0;
+
+            if (currentQtyInCart + 1 > product.stock) {
+                showToast(`สั่งเกินสต๊อกแล้ว! สินค้านี้มีคงเหลือเพียง ${product.stock} ถ้วย`);
+                return;
+            }
+
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ id: productId, qty: 1 });
+            }
+
+            saveCartToStorage();
+            updateCartUI();
+            showToast(`เพิ่ม "${product.nameTh}" ลงตะกร้าแล้ว! 🍓`);
+        }
+
+        function updateCartQty(productId, delta) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex === -1) return;
+
+            const product = products.find(p => p.id === productId);
+            const newQty = cart[itemIndex].qty + delta;
+
+            if (newQty <= 0) {
+                cart.splice(itemIndex, 1);
+            } else if (product && newQty > product.stock) {
+                showToast(`สั่งเกินสต๊อก! สินค้านี้เหลือเพียง ${product.stock} ถ้วย`);
+                return;
+            } else {
+                cart[itemIndex].qty = newQty;
+            }
+
+            saveCartToStorage();
+            updateCartUI();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveCartToStorage();
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-badge-count').innerText = totalCount;
+            document.getElementById('floating-cart-count').innerText = totalCount;
+
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 space-y-3">
+                        <div class="text-4xl text-strawberry-300">🍰</div>
+                        <p class="text-strawberry-700 font-bold text-sm">ยังไม่มีสินค้าในตะกร้า</p>
+                        <p class="text-xs text-gray-400">เลือกชีสพายถ้วยโปรดของคุณ แล้วกดสั่งซื้อได้เลย!</p>
+                    </div>`;
+                document.getElementById('cart-subtotal').innerText = "0 ฿";
+                document.getElementById('cart-shipping').innerText = "0 ฿";
+                document.getElementById('cart-total').innerText = "0 ฿";
+                document.getElementById('checkout-btn').disabled = true;
+                return;
+            }
+
+            document.getElementById('checkout-btn').disabled = false;
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                if (!product) return;
+
+                const itemTotal = product.price * item.qty;
+                subtotal += itemTotal;
+
+                const itemEl = document.createElement('div');
+                itemEl.className = 'bg-white p-3 rounded-2xl border border-strawberry-100 flex items-center justify-between gap-3 shadow-sm';
+                itemEl.innerHTML = `
+                    <img src="${product.img}" alt="${product.nameTh}" class="w-14 h-14 rounded-xl object-cover bg-cream-100">
+                    <div class="flex-grow min-w-0">
+                        <h4 class="font-bold text-strawberry-800 text-xs truncate">${product.nameTh}</h4>
+                        <span class="text-strawberry-500 font-bold text-xs">${product.price} ฿</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="flex items-center bg-cream-100 rounded-lg border border-strawberry-200">
+                            <button onclick="updateCartQty(${product.id}, -1)" class="px-2 py-0.5 text-xs text-strawberry-700 font-bold hover:bg-strawberry-200 rounded-l-lg">-</button>
+                            <span class="px-2 text-xs font-bold text-strawberry-800">${item.qty}</span>
+                            <button onclick="updateCartQty(${product.id}, 1)" class="px-2 py-0.5 text-xs text-strawberry-700 font-bold hover:bg-strawberry-200 rounded-r-lg">+</button>
+                        </div>
+                        <button onclick="removeFromCart(${product.id})" class="text-gray-400 hover:text-red-500 text-xs p-1"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+                container.appendChild(itemEl);
+            });
+
+            const shipping = totalCount >= 10 ? 0 : 30;
+            const total = subtotal + shipping;
+
+            document.getElementById('cart-subtotal').innerText = `${subtotal} ฿`;
+            document.getElementById('cart-shipping').innerText = `${shipping} ฿ ${shipping === 0 ? '(ฟรี!)' : ''}`;
+            document.getElementById('cart-total').innerText = `${total} ฿`;
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // CHECKOUT & ORDER SUBMISSION
+        function openCheckoutModal() {
+            if (cart.length === 0) return;
+            toggleCartDrawer();
+
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            let subtotal = 0;
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                if (product) subtotal += product.price * item.qty;
+            });
+
+            const shipping = totalCount >= 10 ? 0 : 30;
+            const total = subtotal + shipping;
+
+            document.getElementById('chk-subtotal').innerText = `${subtotal} ฿`;
+            document.getElementById('chk-shipping').innerText = `${shipping} ฿`;
+            document.getElementById('chk-total').innerText = `${total} ฿`;
+
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function handleCheckoutSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const address = document.getElementById('cust-address').value;
+            const payment = document.querySelector('input[name="payment"]:checked').value;
+
+            let orderItems = [];
+            let subtotal = 0;
+            let totalCost = 0;
+            let totalCups = 0;
+
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                if (product) {
+                    product.stock -= item.qty; // Deduct Stock
+                    subtotal += product.price * item.qty;
+                    totalCost += product.cost * item.qty;
+                    totalCups += item.qty;
+                    orderItems.push({
+                        id: product.id,
+                        nameTh: product.nameTh,
+                        qty: item.qty,
+                        price: product.price,
+                        cost: product.cost
+                    });
+                }
+            });
+
+            const shipping = totalCups >= 10 ? 0 : 30;
+            const total = subtotal + shipping;
+
+            const newOrder = {
+                id: 'ORD-' + Math.floor(100000 + Math.random() * 900000),
+                date: new Date().toLocaleString('th-TH'),
+                name: name,
+                phone: phone,
+                address: address,
+                payment: payment === 'COD' ? 'ชำระเงินปลายทาง' : 'โอนเงินผ่านธนาคาร',
+                items: orderItems,
+                subtotal: subtotal,
+                shipping: shipping,
+                total: total,
+                totalCost: totalCost,
+                totalCups: totalCups
+            };
+
+            orders.unshift(newOrder);
+
+            saveProductsToStorage();
+            saveOrdersToStorage();
+
+            // Clear Cart
+            cart = [];
+            saveCartToStorage();
+
+            renderProducts();
+            updateCartUI();
+            closeCheckoutModal();
+
+            // Show Receipt
+            showReceipt(newOrder);
+        }
+
+        function showReceipt(order) {
+            const container = document.getElementById('receipt-content');
+            let itemsHTML = order.items.map(i => `<div class="flex justify-between"><span>${i.nameTh} (${i.qty} ถ้วย)</span><span>${i.price * i.qty} ฿</span></div>`).join('');
+            
+            container.innerHTML = `
+                <div class="border-b border-gray-300 pb-2 mb-2">
+                    <p class="font-bold text-center">DEK-AUAN CHEESECAKE CUP</p>
+                    <p class="text-[10px] text-center text-gray-500">รหัสออเดอร์: ${order.id}</p>
+                    <p class="text-[10px] text-center text-gray-500">วันที่: ${order.date}</p>
+                </div>
+                <div class="space-y-1 mb-2">
+                    <p><strong>ผู้สั่งซื้อ:</strong> ${order.name}</p>
+                    <p><strong>โทร:</strong> ${order.phone}</p>
+                    <p><strong>วิธีชำระ:</strong> ${order.payment}</p>
+                </div>
+                <div class="border-t border-b border-gray-200 py-2 space-y-1">
+                    ${itemsHTML}
+                </div>
+                <div class="pt-2 space-y-1">
+                    <div class="flex justify-between"><span>ค่าสินค้า:</span><span>${order.subtotal} ฿</span></div>
+                    <div class="flex justify-between"><span>ค่าจัดส่ง:</span><span>${order.shipping} ฿</span></div>
+                    <div class="flex justify-between font-bold text-sm text-strawberry-700 pt-1 border-t border-gray-300">
+                        <span>ยอดรวมสุทธิ:</span><span>${order.total} ฿</span>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('receipt-modal').classList.remove('hidden');
+        }
+
+        function closeReceiptModal() {
+            document.getElementById('receipt-modal').classList.add('hidden');
+        }
+
+        // ADMIN ACCESS & PIN SECURITY
+        function openAdminModal() {
+            document.getElementById('admin-pin-input').value = '';
+            document.getElementById('admin-pin-error').classList.add('hidden');
+            document.getElementById('admin-pin-modal').classList.remove('hidden');
+        }
+
+        function closeAdminPinModal() {
+            document.getElementById('admin-pin-modal').classList.add('hidden');
+        }
+
+        function submitAdminPin() {
+            const pin = document.getElementById('admin-pin-input').value.trim();
+            if (pin === '374817') {
+                closeAdminPinModal();
+                openAdminDashboard();
+            } else {
+                document.getElementById('admin-pin-error').innerText = 'ไม่ถูกต้องกรุณากรอกรหัสผ่านใหม่';
+                document.getElementById('admin-pin-error').classList.remove('hidden');
+                document.getElementById('admin-pin-input').value = '';
+            }
+        }
+
+        // ADMIN DASHBOARD
+        function openAdminDashboard() {
+            updateAdminFinancials();
+            renderAdminStockTable();
+            document.getElementById('admin-dashboard-modal').classList.remove('hidden');
+        }
+
+        function closeAdminDashboard() {
+            document.getElementById('admin-dashboard-modal').classList.add('hidden');
+        }
+
+        function switchAdminTab(tabName) {
+            ['finance', 'stock', 'media'].forEach(t => {
+                document.getElementById(`admin-tab-${t}`).classList.add('hidden');
+                document.getElementById(`tab-btn-${t}`).className = 'py-3 px-4 font-semibold text-xs sm:text-sm text-gray-500 border-b-2 border-transparent hover:text-strawberry-600 flex items-center gap-2';
+            });
+
+            document.getElementById(`admin-tab-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-btn-${tabName}`).className = 'py-3 px-4 font-bold text-xs sm:text-sm border-b-2 border-strawberry-500 text-strawberry-800 flex items-center gap-2';
+        }
+
+        // ADMIN FINANCIAL CALCULATIONS & ORDER DELETION
+        let salesChartInstance = null;
+
+        function renderAdminChart() {
+            const ctx = document.getElementById('salesChart');
+            if (!ctx) return;
+
+            const productStats = {};
+            products.forEach(p => {
+                productStats[p.id] = { name: p.nameTh, totalSales: 0, totalUnits: 0, totalProfit: 0 };
+            });
+
+            orders.forEach(o => {
+                if (o.items && Array.isArray(o.items)) {
+                    o.items.forEach(item => {
+                        if (productStats[item.id]) {
+                            productStats[item.id].totalUnits += item.qty;
+                            productStats[item.id].totalSales += item.price * item.qty;
+                            productStats[item.id].totalProfit += (item.price - item.cost) * item.qty;
+                        }
+                    });
+                }
+            });
+
+            const labels = Object.values(productStats).map(s => s.name);
+            const salesData = Object.values(productStats).map(s => s.totalSales);
+            const profitData = Object.values(productStats).map(s => s.totalProfit);
+
+            if (salesChartInstance) {
+                salesChartInstance.destroy();
+            }
+
+            salesChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'ยอดขาย (บาท)',
+                            data: salesData,
+                            backgroundColor: '#801217',
+                            borderRadius: 8
+                        },
+                        {
+                            label: 'กำไรสุทธิ (บาท)',
+                            data: profitData,
+                            backgroundColor: '#F59E0B',
+                            borderRadius: 8
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: { family: 'Mitr', size: 12 }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { font: { family: 'Mitr' } }
+                        },
+                        x: {
+                            ticks: { font: { family: 'Mitr' } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateAdminFinancials() {
+            let totalSales = 0;
+            let totalCosts = 0;
+            let unitsSold = 0;
+
+            orders.forEach(o => {
+                totalSales += o.subtotal;
+                totalCosts += o.totalCost || 0;
+                unitsSold += o.totalCups || 0;
+            });
+
+            const netProfit = totalSales - totalCosts;
+
+            document.getElementById('stat-total-sales').innerText = `${totalSales.toLocaleString()} ฿`;
+            document.getElementById('stat-total-cost').innerText = `${totalCosts.toLocaleString()} ฿`;
+            document.getElementById('stat-net-profit').innerText = `${netProfit.toLocaleString()} ฿`;
+            document.getElementById('stat-units-sold').innerText = `${unitsSold.toLocaleString()} ถ้วย`;
+
+            // Render Chart
+            renderAdminChart();
+
+            // Render Orders History List (With Individual Deletion)
+            const historyContainer = document.getElementById('orders-history-list');
+            historyContainer.innerHTML = '';
+
+            if (orders.length === 0) {
+                historyContainer.innerHTML = `<p class="text-xs text-gray-400 py-4 text-center">ยังไม่มีประวัติการสั่งซื้อสินค้า</p>`;
+                return;
+            }
+
+            orders.forEach(o => {
+                const itemEl = document.createElement('div');
+                itemEl.className = 'p-3.5 bg-cream-50 rounded-2xl border border-strawberry-100 flex items-center justify-between gap-3 text-xs hover:border-strawberry-300 transition-colors shadow-xs';
+                
+                const itemsSummary = o.items ? o.items.map(i => `${i.nameTh} x${i.qty}`).join(', ') : '';
+
+                itemEl.innerHTML = `
+                    <div class="flex-grow min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="font-bold text-strawberry-800">${o.id}</span>
+                            <span class="bg-strawberry-500 text-white font-bold px-2 py-0.5 rounded-full text-[10px]">${o.name}</span>
+                            <span class="text-[10px] text-gray-500">📞 ${o.phone}</span>
+                        </div>
+                        <p class="text-[11px] text-gray-600 font-medium mt-1">🛒 รายการ: ${itemsSummary}</p>
+                        <p class="text-[10px] text-gray-400 mt-0.5">🕒 ${o.date} | 💳 ${o.payment}</p>
+                    </div>
+                    <div class="flex items-center gap-3 flex-shrink-0">
+                        <span class="font-bold text-strawberry-700 text-sm">${o.total} ฿</span>
+                        <button onclick="deleteSingleOrder('${o.id}')" class="px-2.5 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 rounded-xl text-xs font-semibold border border-red-200 transition-all flex items-center gap-1" title="ลบออเดอร์ลูกค้ารายนี้">
+                            <i class="fa-solid fa-trash-can"></i>
+                            <span>ลบ</span>
+                        </button>
+                    </div>
+                `;
+                historyContainer.appendChild(itemEl);
+            });
+        }
+
+        function deleteSingleOrder(orderId) {
+            const targetOrder = orders.find(o => o.id === orderId);
+            const customerName = targetOrder ? targetOrder.name : 'ลูกค้ารายนี้';
+            
+            if (confirm(`คุณต้องการลบประวัติการสั่งซื้อของ "${customerName}" (${orderId}) ใช่หรือไม่?`)) {
+                orders = orders.filter(o => o.id !== orderId);
+                saveOrdersToStorage();
+                updateAdminFinancials();
+                showToast(`ลบรายการสั่งซื้อของ ${customerName} เรียบร้อยแล้ว`);
+            }
+        }
+
+        function clearAllOrdersHistory() {
+            if (confirm("คุณแน่ใจหรือว่าต้องการล้างประวัติการสั่งซื้อทั้งหมด? ยอดขายและกำไรจะถูกรีเซ็ตใหม่")) {
+                orders = [];
+                saveOrdersToStorage();
+                updateAdminFinancials();
+                showToast("ล้างประวัติรายการสั่งซื้อทั้งหมดเรียบร้อยแล้ว");
+            }
+        }
+
+        // ADMIN STOCK MANAGEMENT TABLE
+        function renderAdminStockTable() {
+            const tbody = document.getElementById('admin-stock-table-body');
+            tbody.innerHTML = '';
+
+            products.forEach(p => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-cream-50 transition-colors';
+                tr.innerHTML = `
+                    <td class="p-3">
+                        <div class="flex items-center gap-2">
+                            <img src="${p.img}" class="w-10 h-10 rounded-lg object-cover border border-strawberry-200">
+                            <div>
+                                <span class="font-bold text-strawberry-800 block">${p.nameTh}</span>
+                                <span class="text-[10px] text-gray-400">${p.name}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="p-3">
+                        <input type="number" value="${p.price}" onchange="updateProductField(${p.id}, 'price', this.value)" class="w-16 px-2 py-1 border rounded-lg border-strawberry-200 focus:outline-none text-center">
+                    </td>
+                    <td class="p-3">
+                        <input type="number" value="${p.cost}" onchange="updateProductField(${p.id}, 'cost', this.value)" class="w-16 px-2 py-1 border rounded-lg border-strawberry-200 focus:outline-none text-center">
+                    </td>
+                    <td class="p-3">
+                        <input type="number" value="${p.stock}" onchange="updateProductField(${p.id}, 'stock', this.value)" class="w-16 px-2 py-1 border rounded-lg border-strawberry-200 focus:outline-none text-center font-bold text-strawberry-700">
+                    </td>
+                    <td class="p-3">
+                        <div class="space-y-1.5">
+                            <input type="file" accept="image/*" onchange="handleProductFileUpload(event, ${p.id})" class="text-[10px] text-gray-500 file:py-1 file:px-2 file:rounded-lg file:border-0 file:bg-strawberry-100 file:text-strawberry-700 hover:file:bg-strawberry-200 cursor-pointer">
+                            <input type="text" value="${p.img.startsWith('data:') ? '' : p.img}" placeholder="หรือวาง Image URL..." onchange="updateProductField(${p.id}, 'img', this.value)" class="w-full px-2 py-1 border border-strawberry-200 rounded-lg text-[10px] focus:outline-none">
+                        </div>
+                    </td>
+                    <td class="p-3 text-center">
+                        <button onclick="deleteProduct(${p.id})" class="text-red-500 hover:text-red-700 p-1"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function updateProductField(id, field, value) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+
+            if (field === 'price' || field === 'cost' || field === 'stock') {
+                product[field] = parseInt(value) || 0;
+            } else {
+                product[field] = value;
+            }
+
+            saveProductsToStorage();
+            renderProducts();
+            showToast(`อัปเดตข้อมูล ${product.nameTh} เรียบร้อยแล้ว`);
+        }
+
+        function handleProductFileUpload(e, productId) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                updateProductField(productId, 'img', evt.target.result);
+                renderAdminStockTable();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function deleteProduct(id) {
+            if (confirm("คุณแน่ใจหรือว่าต้องการลบสินค้ารายการนี้ออกจากระบบ?")) {
+                products = products.filter(p => p.id !== id);
+                saveProductsToStorage();
+                renderProducts();
+                renderAdminStockTable();
+                showToast("ลบรายการสินค้าเรียบร้อยแล้ว");
+            }
+        }
+
+        // ADD NEW PRODUCT
+        function openAddProductModal() {
+            document.getElementById('add-product-modal').classList.remove('hidden');
+        }
+
+        function closeAddProductModal() {
+            document.getElementById('add-product-modal').classList.add('hidden');
+        }
+
+        function handleNewProductFile(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                tempNewProductFileBase64 = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function submitNewProduct(e) {
+            e.preventDefault();
+            const nameTh = document.getElementById('new-p-name').value;
+            const nameEn = document.getElementById('new-p-name-en').value || nameTh;
+            const price = parseInt(document.getElementById('new-p-price').value) || 30;
+            const cost = parseInt(document.getElementById('new-p-cost').value) || 15;
+            const stock = parseInt(document.getElementById('new-p-stock').value) || 20;
+            const desc = document.getElementById('new-p-desc').value || "ครีมชีสแท้โฮมเมด สดใหม่ อร่อยฟิน";
+            const img = tempNewProductFileBase64 || DEFAULT_HERO_IMG;
+
+            const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+            products.push({
+                id: newId,
+                name: nameEn,
+                nameTh: nameTh,
+                price: price,
+                cost: cost,
+                stock: stock,
+                desc: desc,
+                img: img
+            });
+
+            tempNewProductFileBase64 = "";
+            saveProductsToStorage();
+            renderProducts();
+            renderAdminStockTable();
+            closeAddProductModal();
+            showToast(`เพิ่มสินค้าใหม่ "${nameTh}" เรียบร้อยแล้ว!`);
+        }
+
+        // ADMIN MEDIA & BRANDING HANDLERS
+        function handleLogoFileUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                tempLogoFileBase64 = evt.target.result;
+                document.getElementById('admin-logo-preview').src = tempLogoFileBase64;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveLogoSettings() {
+            const urlInput = document.getElementById('admin-logo-url-input').value.trim();
+            if (tempLogoFileBase64) {
+                currentLogo = tempLogoFileBase64;
+                tempLogoFileBase64 = "";
+            } else if (urlInput) {
+                currentLogo = urlInput;
+            }
+
+            localStorage.setItem('dek_auan_logo_v3', currentLogo);
+            updateMediaElements();
+            showToast("✨ บันทึกเปลี่ยนรูปโลโก้ร้านใหม่เรียบร้อยแล้ว!");
+        }
+
+        function handleHeroFileUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                tempHeroFileBase64 = evt.target.result;
+                document.getElementById('admin-hero-preview').src = tempHeroFileBase64;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveHeroSettings() {
+            if (tempHeroFileBase64) {
+                currentHeroImg = tempHeroFileBase64;
+                tempHeroFileBase64 = "";
+                localStorage.setItem('dek_auan_hero_img_v3', currentHeroImg);
+                updateMediaElements();
+                showToast("✨ บันทึกเปลี่ยนรูปภาพไฮไลท์หน้าแรกเรียบร้อยแล้ว!");
+            }
+        }
+
+        function handleAboutFileUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                tempAboutFileBase64 = evt.target.result;
+                document.getElementById('admin-about-preview').src = tempAboutFileBase64;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveAboutSettings() {
+            if (tempAboutFileBase64) {
+                currentAboutImg = tempAboutFileBase64;
+                tempAboutFileBase64 = "";
+                localStorage.setItem('dek_auan_about_img_v3', currentAboutImg);
+                updateMediaElements();
+                showToast("✨ บันทึกเปลี่ยนรูปเกี่ยวกับร้านเรียบร้อยแล้ว!");
+            }
+        }
+
+        function selectPresetVideo(url) {
+            document.getElementById('admin-video-url-input').value = url;
+            tempVideoFileBase64 = "";
+            updateVideoOnPage(url);
+            showToast("🎬 เลือกรุ่นวิดีโอตัวอย่างแล้ว กด 'บันทึก' เพื่อใช้งาน");
+        }
+
+        function handleVideoFileUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (file.size > 25 * 1024 * 1024) {
+                alert("ไฟล์วิดีโอมีขนาดใหญ่เกิน 25MB แนะนำให้ใช้ลิงก์ YouTube หรือลิงก์ตรง MP4 เพื่อประสิทธิภาพที่ดีกว่า");
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                tempVideoFileBase64 = evt.target.result;
+                updateVideoOnPage(tempVideoFileBase64);
+                showToast("🎬 อ่านไฟล์วิดีโอเรียบร้อยแล้ว กด 'บันทึก' เพื่อใช้งาน");
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveVideoSettings() {
+            const urlInput = document.getElementById('admin-video-url-input').value.trim();
+            if (tempVideoFileBase64) {
+                currentVideo = tempVideoFileBase64;
+                tempVideoFileBase64 = "";
+            } else if (urlInput) {
+                currentVideo = urlInput;
+            }
+
+            try {
+                localStorage.setItem('dek_auan_video_v3', currentVideo);
+                updateVideoOnPage(currentVideo);
+                showToast("✨ บันทึกเปลี่ยนวิดีโอสินค้าใหม่เรียบร้อยแล้ว!");
+            } catch(err) {
+                alert("ไฟล์วิดีโอขนาดใหญ่เกินขีดจำกัด LocalStorage กรุณาใช้วิธีวาง URL หรือลิงก์ YouTube แทนครับ");
+            }
+        }
+    </script>
+</body>
+</html>
